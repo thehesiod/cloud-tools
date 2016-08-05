@@ -1,8 +1,10 @@
+#!/usr/bin/env python3
 from pyicloud import PyiCloudService
 import os.path
 import multiprocessing.pool
 import traceback
 import argparse
+
 
 def download_photo(photo, photo_path):
     try:
@@ -24,7 +26,7 @@ def download_photo(photo, photo_path):
 
 def main():
     parser = argparse.ArgumentParser(description='Download All Photos from iCloud')
-    parser.add_argument('-apple_id', required=True, help='Your AppleID (password must be in KeyChain')
+    parser.add_argument('-apple_id', required=True, help="Your AppleID (password must be in KeyChain")
     parser.add_argument('-password', required=True)  # TODO switch to using keyring
     parser.add_argument('-folder', required=True, help='Path to Download Photos To')
     app_args = parser.parse_args()
